@@ -2,23 +2,39 @@ package ueg.estrutura_de_dados.bimestre1.trabalho1.ListaCircular;
 
 
 class Lista {
-    protected No primeiro;
-    protected No ultimo;
-    protected int qdnos;
+    protected No primeiro; /** primeiro nó da lista */
+    protected No ultimo; /** último nó da lista */
+    protected int qdnos; /** Quantidade de nós */
 
+    /**
+     * Construtor da classe lista sendo inicializado com valores nulos e nenhum nó
+     */
     public Lista() {
         primeiro = ultimo = null;
         qdnos = 0;
     }
 
+    /**
+     * Verifica se a quantidade de nós na lista é igual a 0.
+     *
+     * @return true ou false
+     */
     public boolean estaVazia() {
         return qdnos == 0;
     }
 
+    /**
+     * Verifica quantos nós tem na lista atual
+     *
+     * @return quantidade de nós.
+     */
     public int totalNos() {
         return qdnos;
     }
 
+    /**
+     * Atribui valores nulos a lista e a quantidade de nós a 0 (exclui a lista de certa forma).
+     */
     public void excluirLista() {
         if (!estaVazia()) {
             primeiro = ultimo = null;
@@ -26,6 +42,11 @@ class Lista {
         }
     }
 
+    /**
+     * Insere valor no começo da lista atual com o parametro 'info'
+     *
+     * @param info
+     */
     public void inserirNoComeco(int info) {
         if (estaVazia()) {
             No novo = new No(info);
@@ -40,7 +61,11 @@ class Lista {
         qdnos++;
     }
 
-    //insere no fim
+    /**
+     *Insere novo nó na lista na última posição (sequencialmente).
+     *
+     * @param info
+     */
     public void inserir(int info) {
         if (estaVazia()) {
             inserirNoComeco(info);
@@ -53,7 +78,12 @@ class Lista {
         }
     }
 
-    //insere na posição indicada
+    /**
+     * Insere novo nó na posição indicada
+     *
+     * @param info
+     * @param pos
+     */
     public void inserir(int info, int pos) {
         if (estaVazia()) {
             inserirNoComeco(info);
@@ -75,6 +105,11 @@ class Lista {
         }
     }
 
+    /**
+     * Exclui nó na posição selecionada.
+     *
+     * @param pos
+     */
     public void excluirNo(int pos) {
         if (estaVazia()) {
             System.out.println("LISTA VAZIA!");
@@ -115,6 +150,11 @@ class Lista {
     }
 
 
+    /**
+     * Busca dados da posição selecionada pelo parâmetro 'pos'
+     * @param pos
+     * @return info da posição
+     */
     public int buscar(int pos) {
         No aux = primeiro;
         if (!estaVazia()) {
@@ -131,6 +171,11 @@ class Lista {
         return aux.getInfo();
     }
 
+    /**
+     * Pesquisa dada info na lista e verifica se existe.
+     * @param info
+     * @return true ou false, baseado na existencia da info.
+     */
     public boolean pesquisar(int info) {
         No aux = primeiro;
         while ((aux.getInfo() != info) && (aux.getProx() != primeiro)) {
@@ -144,6 +189,11 @@ class Lista {
         }
     }
 
+    /**
+     * Altera info da posição da lista.
+     * @param pos
+     * @param info
+     */
     public void alterar(int pos, int info) {
         int i = 1;
         No aux = primeiro;
@@ -154,7 +204,12 @@ class Lista {
         aux.setInfo(info);
     }
 
-    //Imprime a lista toda
+    /**
+     * Se a lista for vazia escreve '[]'.
+     * Se conter valores na listas, imprime esses valores. ex.: [x][y]..[n]
+     *
+     * @return Valores da lista.
+     */
     public String toString() {
         if (qdnos == 0) {
             return "[]";
@@ -173,6 +228,9 @@ class Lista {
         return builder.toString();
     }
 
+    /**
+     * Imprime a lista.
+     */
     public void listar() {
         if (estaVazia()) {
             System.out.println("LISTA VAZIA!");

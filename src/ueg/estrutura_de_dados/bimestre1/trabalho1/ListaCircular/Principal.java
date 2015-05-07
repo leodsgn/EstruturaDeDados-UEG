@@ -23,7 +23,7 @@ class Principal{
 		lista1.excluirNo(3);
 		System.out.println("LISTA: " + lista1);*/
 
-		/*System.out.println("\nExiste o elemento 3 na lista? " + lista1.pesquisar(3));
-		System.out.println("\nExiste o elemento 10 na lista? " + lista1.pesquisar(10));*/
+//		System.out.println("\nExiste o elemento 3 na lista? " + lista1.pesquisar(3));
+//		System.out.println("\nExiste o elemento 10 na lista? " + lista1.pesquisar(9));
     }
 }
