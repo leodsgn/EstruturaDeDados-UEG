@@ -2,12 +2,12 @@ package ueg.estrutura_de_dados.bimestre1.trabalho1.ListaCircular;
 
 
 class Lista {
-    protected No primeiro; /** primeiro nó da lista */
-    protected No ultimo; /** último nó da lista */
-    protected int qdnos; /** Quantidade de nós */
+    protected No primeiro; /** primeiro nÃ³ da lista */
+    protected No ultimo; /** Ãºltimo nÃ³ da lista */
+    protected int qdnos; /** Quantidade de nÃ³s */
 
     /**
-     * Construtor da classe lista sendo inicializado com valores nulos e nenhum nó
+     * Construtor da classe lista sendo inicializado com valores nulos e nenhum nï¿½
      */
     public Lista() {
         primeiro = ultimo = null;
@@ -15,7 +15,7 @@ class Lista {
     }
 
     /**
-     * Verifica se a quantidade de nós na lista é igual a 0.
+     * Verifica se a quantidade de nÃ³s na lista Ã© igual a 0.
      *
      * @return true ou false
      */
@@ -24,16 +24,16 @@ class Lista {
     }
 
     /**
-     * Verifica quantos nós tem na lista atual
+     * Verifica quantos nÃ³s tem na lista atual
      *
-     * @return quantidade de nós.
+     * @return quantidade de nÃ³s.
      */
     public int totalNos() {
         return qdnos;
     }
 
     /**
-     * Atribui valores nulos a lista e a quantidade de nós a 0 (exclui a lista de certa forma).
+     * Atribui valores nulos a lista e a quantidade de nï¿½s a 0 (exclui a lista de certa forma).
      */
     public void excluirLista() {
         if (!estaVazia()) {
@@ -43,7 +43,7 @@ class Lista {
     }
 
     /**
-     * Insere valor no começo da lista atual com o parametro 'info'
+     * Insere valor no comeÃ§o da lista atual com o parametro 'info'
      *
      * @param info
      */
@@ -62,7 +62,7 @@ class Lista {
     }
 
     /**
-     *Insere novo nó na lista na última posição (sequencialmente).
+     *Insere novo nÃ³ na lista na Ãºltima posiÃ§Ã£o (sequencialmente).
      *
      * @param info
      */
@@ -79,7 +79,7 @@ class Lista {
     }
 
     /**
-     * Insere novo nó na posição indicada
+     * Insere novo nÃ³ na posiÃ§Ã£o indicada
      *
      * @param info
      * @param pos
@@ -106,7 +106,7 @@ class Lista {
     }
 
     /**
-     * Exclui nó na posição selecionada.
+     * Exclui nÃ³ na posiÃ§Ã£o selecionada.
      *
      * @param pos
      */
@@ -114,7 +114,7 @@ class Lista {
         if (estaVazia()) {
             System.out.println("LISTA VAZIA!");
         } else if (pos <= qdnos) {
-            if (pos == 1) { //remove do começo
+            if (pos == 1) { //remove do comeÃ§o
                 if (qdnos == 1) {
                     primeiro = ultimo = null;
                 } else {
@@ -151,9 +151,9 @@ class Lista {
 
 
     /**
-     * Busca dados da posição selecionada pelo parâmetro 'pos'
+     * Busca dados da posiÃ§Ã£o selecionada pelo parÃ¢metro 'pos'
      * @param pos
-     * @return info da posição
+     * @return info da posiÃ§Ã£o
      */
     public int buscar(int pos) {
         No aux = primeiro;
@@ -190,7 +190,7 @@ class Lista {
     }
 
     /**
-     * Altera info da posição da lista.
+     * Altera info da posiÃ§Ã£o da lista.
      * @param pos
      * @param info
      */

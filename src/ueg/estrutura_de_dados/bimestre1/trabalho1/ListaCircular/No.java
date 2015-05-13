@@ -1,11 +1,11 @@
 package ueg.estrutura_de_dados.bimestre1.trabalho1.ListaCircular;
 
 class No{
-    protected No prox; // ponteiro para próximo nó
-    protected int info; // valor do nó da lista
+    protected No prox; // ponteiro para prÃ³ximo nÃ³
+    protected int info; // valor do nÃ³ da lista
 
     /**
-     * Construtor do próximo nó
+     * Construtor do prÃ³ximo nÃ³
      *
      * @param prox
      * @param info
@@ -16,17 +16,17 @@ class No{
     }
 
     /**
-     * Construtor do nó atual
+     * Construtor do nÃ³ atual
      *
      * @param info
      */
     public No(int info){
-        this.info = info; // valor do nó da lista
-        prox = null; // ponteiro para proximo nó
+        this.info = info; // valor do nÃ³ da lista
+        prox = null; // ponteiro para proximo nÃ³
     }
 
     /**
-     * Insere o endereço do próximo nó
+     * Insere o endereÃ§o do prÃ³ximo nÃ³
      *
      * @param prox
      */
@@ -34,7 +34,7 @@ class No{
     public No getProx(){ return prox; }
 
     /**
-     * Insere valor do próximo nó
+     * Insere valor do prÃ³ximo nÃ³
      *
      * @param info
      */

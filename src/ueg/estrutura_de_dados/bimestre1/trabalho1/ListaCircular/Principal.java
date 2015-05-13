@@ -17,11 +17,11 @@ class Principal{
         lista1.inserirNoComeco(9);
         System.out.println("LISTA: " + lista1);
 
-		/*lista1.inserir(7, 3);
+		lista1.inserir(7, 3);
 		System.out.println("LISTA: " + lista1);
 
 		lista1.excluirNo(3);
-		System.out.println("LISTA: " + lista1);*/
+		System.out.println("LISTA: " + lista1);
 
 //		System.out.println("\nExiste o elemento 3 na lista? " + lista1.pesquisar(3));
 //		System.out.println("\nExiste o elemento 10 na lista? " + lista1.pesquisar(9));
