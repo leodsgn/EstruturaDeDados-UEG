@@ -1,54 +1,28 @@
 package ueg.estrutura_de_dados.bimestre1.trabalho1.ListaCircular;
 
+class Lista{
+    protected No primeiro;
+    protected No ultimo;
+    protected int qdnos;
 
-class Lista {
-    protected No primeiro; /** primeiro nó da lista */
-    protected No ultimo; /** último nó da lista */
-    protected int qdnos; /** Quantidade de nós */
-
-    /**
-     * Construtor da classe lista sendo inicializado com valores nulos e nenhum n�
-     */
-    public Lista() {
+    public Lista(){
         primeiro = ultimo = null;
         qdnos = 0;
     }
 
-    /**
-     * Verifica se a quantidade de nós na lista é igual a 0.
-     *
-     * @return true ou false
-     */
-    public boolean estaVazia() {
-        return qdnos == 0;
-    }
+    public boolean estaVazia(){ return qdnos == 0; }
 
-    /**
-     * Verifica quantos nós tem na lista atual
-     *
-     * @return quantidade de nós.
-     */
-    public int totalNos() {
-        return qdnos;
-    }
+    public int totalNos(){ return qdnos; }
 
-    /**
-     * Atribui valores nulos a lista e a quantidade de n�s a 0 (exclui a lista de certa forma).
-     */
-    public void excluirLista() {
-        if (!estaVazia()) {
+    public void excluirLista(){
+        if(!estaVazia()){
             primeiro = ultimo = null;
             qdnos = 0;
         }
     }
 
-    /**
-     * Insere valor no começo da lista atual com o parametro 'info'
-     *
-     * @param info
-     */
-    public void inserirNoComeco(int info) {
-        if (estaVazia()) {
+    public void inserirNoComeco(int info){
+        if(estaVazia()){
             No novo = new No(info);
             primeiro = ultimo = novo;
             novo.setProx(novo);
@@ -61,13 +35,9 @@ class Lista {
         qdnos++;
     }
 
-    /**
-     *Insere novo nó na lista na última posição (sequencialmente).
-     *
-     * @param info
-     */
-    public void inserir(int info) {
-        if (estaVazia()) {
+    //insere no fim
+    public void inserir(int info){
+        if(estaVazia()){
             inserirNoComeco(info);
         } else {
             No novo = new No(info);
@@ -78,22 +48,17 @@ class Lista {
         }
     }
 
-    /**
-     * Insere novo nó na posição indicada
-     *
-     * @param info
-     * @param pos
-     */
-    public void inserir(int info, int pos) {
-        if (estaVazia()) {
+    //insere na posição indicada
+    public void inserir(int info, int pos){
+        if(estaVazia()){
             inserirNoComeco(info);
-        } else if (pos == qdnos) {
+        } else if(pos == qdnos) {
             inserir(info);
         } else {
             int i = 1;
             No aux = primeiro;
 
-            while (i != (pos - 1)) {
+            while(i != (pos-1)){
                 aux = aux.getProx();
                 i++;
             }
@@ -105,27 +70,22 @@ class Lista {
         }
     }
 
-    /**
-     * Exclui nó na posição selecionada.
-     *
-     * @param pos
-     */
-    public void excluirNo(int pos) {
-        if (estaVazia()) {
+    public void excluirNo(int pos){
+        if(estaVazia()){
             System.out.println("LISTA VAZIA!");
-        } else if (pos <= qdnos) {
-            if (pos == 1) { //remove do começo
-                if (qdnos == 1) {
+        } else if(pos <= qdnos) {
+            if(pos == 1){ //remove do começo
+                if(qdnos == 1){
                     primeiro = ultimo = null;
                 } else {
                     primeiro = primeiro.getProx();
                     ultimo.setProx(primeiro);
                 }
                 qdnos--;
-            } else if (pos == qdnos) { // remove do fim
+            } else if(pos == qdnos) { // remove do fim
                 int i = 1;
                 No aux = primeiro;
-                while (i != (pos - 1)) {
+                while(i != (pos-1)){
                     aux = aux.getProx();
                     i++;
                 }
@@ -136,7 +96,7 @@ class Lista {
                 int i = 1;
                 No aux = primeiro;
                 No aux1 = aux.getProx();
-                while (i != (pos - 1)) {
+                while(i != (pos-1)){
                     aux = aux.getProx();
                     aux1 = aux1.getProx();
                     i++;
@@ -149,18 +109,12 @@ class Lista {
         }
     }
 
-
-    /**
-     * Busca dados da posição selecionada pelo parâmetro 'pos'
-     * @param pos
-     * @return info da posição
-     */
-    public int buscar(int pos) {
+    public int buscar(int pos){
         No aux = primeiro;
-        if (!estaVazia()) {
-            if ((pos > 0) && (pos <= qdnos)) {
+        if(!estaVazia()){
+            if((pos > 0) && (pos <= qdnos)){
                 int i = 1;
-                while (i != pos) {
+                while(i != pos){
                     aux = aux.getProx();
                     i++;
                 }
@@ -171,73 +125,117 @@ class Lista {
         return aux.getInfo();
     }
 
-    /**
-     * Pesquisa dada info na lista e verifica se existe.
-     * @param info
-     * @return true ou false, baseado na existencia da info.
-     */
-    public boolean pesquisar(int info) {
+    public int buscarPos(int info){
         No aux = primeiro;
-        while ((aux.getInfo() != info) && (aux.getProx() != primeiro)) {
+        int i = 1;
+        if(!estaVazia()){
+            while(aux.getInfo() != info){
+                aux = aux.getProx();
+                i++;
+            }
+        }
+        return i;
+    }
+
+    public boolean buscarNo(int pos){
+        No aux = primeiro;
+        int i = 1;
+        if(!estaVazia()){
+            if((pos > 0) && (pos <= qdnos)){
+                while(i != pos){
+                    aux = aux.getProx();
+                    i++;
+                }
+            } else {
+                aux = null;
+            }
+        }
+        if(aux == null){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean pesquisar(int info){
+        No aux = primeiro;
+        int i = 0;
+        while((aux.getInfo() != info) && (aux.getProx() != primeiro)){
             aux = aux.getProx();
+            i++;
         }
 
-        if (aux.getInfo() == info) {
+        if(aux.getInfo() == info){
             return true;
         } else {
             return false;
         }
     }
 
-    /**
-     * Altera info da posição da lista.
-     * @param pos
-     * @param info
-     */
-    public void alterar(int pos, int info) {
+    public void alterar(int pos, int info){
         int i = 1;
         No aux = primeiro;
-        while (i != pos) {
+        while(i != pos){
             aux = aux.getProx();
             i++;
         }
         aux.setInfo(info);
     }
 
-    /**
-     * Se a lista for vazia escreve '[]'.
-     * Se conter valores na listas, imprime esses valores. ex.: [x][y]..[n]
-     *
-     * @return Valores da lista.
-     */
-    public String toString() {
-        if (qdnos == 0) {
+    public Lista intercalar(Lista lista1, Lista lista2){
+        int i, maiorLista;
+        Lista lista3 = new Lista();
+
+        if(lista1.totalNos() < lista2.totalNos()){
+            maiorLista = lista2.totalNos();
+        } else {
+            maiorLista = lista1.totalNos();
+        }
+
+        i = 1;
+
+        while(i <= maiorLista){
+            if(lista1.buscarNo(i)){
+                lista3.inserir(lista1.buscar(i));
+            }
+
+            if(lista2.buscarNo(i)){
+                lista3.inserir(lista2.buscar(i));
+            }
+
+            i++;
+        }
+
+        return lista3;
+    }
+
+    //Imprime a lista toda
+    public String toString(){
+        if(qdnos == 0){
             return "[]";
         }
 
         StringBuilder builder = new StringBuilder("[");
         No aux = primeiro;
-
-        while (aux.getProx() != primeiro) {
+        int i = 0;
+        while(i != qdnos){
             builder.append(aux.getInfo());
             builder.append(",");
             aux = aux.getProx();
+            i++;
         }
 
         builder.append("]");
         return builder.toString();
     }
 
-    /**
-     * Imprime a lista.
-     */
-    public void listar() {
-        if (estaVazia()) {
+    public void listar(){
+        if(estaVazia()){
             System.out.println("LISTA VAZIA!");
         } else {
             int i = 1;
             No aux = primeiro;
-            while (aux.getProx() != primeiro) {
+            while(i != (qdnos + 1)){
                 System.out.println("Posicao " + i + ":" + aux.getInfo());
                 aux = aux.getProx();
                 i++;
