@@ -1,4 +1,4 @@
-package ueg.estrutura_de_dados.bimestre2.Trabalho1;
+package ueg.estrutura_de_dados.bimestre2.Trabalho_TorreDeHanoi;
 
 import java.util.Scanner;
 

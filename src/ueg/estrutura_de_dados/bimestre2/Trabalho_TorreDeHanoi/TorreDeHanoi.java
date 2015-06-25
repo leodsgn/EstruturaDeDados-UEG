@@ -1,4 +1,4 @@
-package ueg.estrutura_de_dados.bimestre2.Trabalho1;
+package ueg.estrutura_de_dados.bimestre2.Trabalho_TorreDeHanoi;
 
 import java.util.Stack;
 
@@ -13,14 +13,22 @@ public class TorreDeHanoi {
     // armazena o número no movimento atual
     private static long numMov;
 
-    // Método que realiza (imprime) o movimento
-    // de um disco entre dois pinos
+
+    /**
+     * Método que realiza (imprime) o movimento de um disco entre dois pinos
+     *
+     * @param O
+     * @param D
+     */
     private static void mover(int O, int D) {
         numMov++;
         System.out.println("[" + numMov + "]:" + O + " -> " + D);
     }
 
-    // método que implementa o algoritmo hanoi iterativo
+    /**
+     * método que implementa o algoritmo hanoi iterativo
+     * @param n
+     */
     public static void hanoi(int n) {
 
         int O = 1; // pino origem
